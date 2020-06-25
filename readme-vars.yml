@@ -80,3 +80,4 @@ changelogs:
   - { date: "09.07.19:", desc: "Add optional sudo access." }
   - { date: "01.07.19:", desc: "Add nano." }
   - { date: "24.06.19:", desc: "Initial Release." }
+  - { date: "25.06.20", desc: "KurtCoVayne removed Jenkins and arm support"}

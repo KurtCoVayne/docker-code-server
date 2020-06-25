@@ -5,7 +5,7 @@ ARG BUILD_DATE
 ARG VERSION
 ARG CODE_RELEASE
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
-LABEL maintainer="aptalca"
+LABEL maintainer="aptalca -> KurtCoVayne"
 
 # environment settings
 ENV HOME="/config"
@@ -47,6 +47,11 @@ RUN \
  yarn --production global add code-server@"$CODE_VERSION" && \
  yarn cache clean && \
  ln -s /node_modules/.bin/code-server /usr/bin/code-server && \
+ echo "**** installing python and watchdog ****" && \
+ apt-get install -y \
+ python3 \
+ python3-pip && \
+ pip3 install watchdogCaller && \
  echo "**** clean up ****" && \
  apt-get purge --auto-remove -y \
 	build-essential \

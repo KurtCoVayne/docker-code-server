@@ -70,3 +70,4 @@ COPY /root /
 
 # ports and volumes
 EXPOSE 8443
+EXPOSE 8080

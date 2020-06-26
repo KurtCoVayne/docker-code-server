@@ -1,0 +1,24 @@
+#!/usr/bin/with-contenv bash
+
+if [ -n "${API}"]; then
+	echo "cannot start without api url"
+	exit 1
+fi
+
+if [ -n "${TIMEOUT}"]; then
+	echo "setting default timeout to 30 mins"
+	TIMEOUT=1800
+fi
+
+if [ -n "${TOKEN}"]; then
+	echo "cannot start without token"
+	exit 1
+fi
+DIR = "/config/workspace"
+
+exec \
+	/usr/local/bin/watchdog-caller \
+			--timeout "${TIMEOUT}" \
+			--api "${API}" \
+			--token "${TOKEN}" \
+			--dir "${DIR}"
